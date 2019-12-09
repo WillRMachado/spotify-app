@@ -1,0 +1,21 @@
+h5 {
+
+    font-size: 14;
+    font-weight: normal;
+    color: #fafafa;
+
+}
+
+.searchInput {
+    box-shadow: none;
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 48px;
+    color: #FFF;
+}
+
+.searchBox{
+    /* background-color: red; */
+    width: 100%;
+}
