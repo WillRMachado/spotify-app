@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import OauthPopup from 'react-oauth-popup'
 import { useSelector, useDispatch } from 'react-redux'
 import searchApi from '../../services/searchApi'
@@ -31,22 +31,34 @@ function Search() {
 
     // console.log(token)
 
+    // on render
+    useEffect(() => {
+        setToken();
+    }, []);
 
 
     useEffect(() => {
         setToken()
         async function SearchItens() {
-            searchApi.get("/search", {
+            await searchApi.get("/search", {
                 params: {
                     "q": "*" + searchText + "*",
                     "type": "artist,album,track"
                 },
                 headers: {
-                    "authorization": "Bearer " + token
+                    "authorization": "Bearer " + window.localStorage.getItem('spotifyToken')
                 }
             }).then(function (response) {
                 setSearchResult(response)
                 // console.log(response);
+            }).catch(function (response) {
+                // console.log(response);
+                if (window.localStorage.getItem('spotifyToken') == "") {
+                    window.localStorage.setItem('spotifyToken', "")
+                } else {
+                    window.localStorage.setItem('spotifyToken', "expired");
+                }
+                setToken()
             })
         }
         SearchItens()
@@ -65,21 +77,13 @@ function Search() {
     }
 
 
-    // on render
-    useEffect(() => {
-        setToken();
-    }, []);
 
 
 
 
     return (
         <div className="searchBox">
-            <OauthPopup
-                url="https://accounts.spotify.com/authorize?client_id=0269347a0b89494a952339ac5aaf8f94&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fspotify-login"
-            >
-                <div>Click me to log into Spotify</div>
-            </OauthPopup>
+
             <h5>Busque por artistas, álbuns ou músicas</h5>
             <input
                 className="searchInput"

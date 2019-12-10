@@ -24,7 +24,7 @@ function SearchResults() {
     // const { data: { data: { tracks = "" } = "" } = "" } = searchData
 
 
-    console.log(searchData)
+    // console.log(searchData)
 
     // console.log(artists)
     // console.log(albums)
@@ -37,7 +37,7 @@ function SearchResults() {
             <h3>{searchText ? `Resultados para "${searchText}"`:'' }</h3>
                 <div className="searchResultBox">
                     {albums.items.map(request => (
-                        <div className="searchResult">
+                        <div key={request.id} className="searchResult">
                             <Album img={request.images[1].url} name={request.name} artist={request.artists[0].name}  id={request.id}/>
                         </div>
                     )

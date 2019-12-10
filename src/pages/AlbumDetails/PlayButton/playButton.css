@@ -1,0 +1,39 @@
+
+.trackNameContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.trackName{
+margin-left:10px;
+
+}
+.trackDuration {
+    margin-left: auto;
+}
+
+.trackFillPlaying {
+
+    animation: fill 30s linear 1;
+    height: 1px;
+    background-color: #999999;
+    margin-bottom: 15px;
+}
+
+.trackFillNotPlaying {
+
+    height: 1px;
+    width: 100%;
+    margin-bottom: 15px;
+
+}
+
+@keyframes fill {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

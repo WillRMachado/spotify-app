@@ -1,0 +1,44 @@
+.albumDetails{
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+}
+
+.albumCoverDetails{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.albumCoverDetails h3{
+   margin-top:30px;
+}
+
+.albumCoverDetails h4{
+    margin-top:10px;
+ }
+
+.albumDetailImage{
+    width: 100%;
+    height: auto;
+}
+.albumDetailTracksWrapper{
+    margin-left:30px;
+    width: 60%;
+}
+
+
+
+.returnFromAlbumDetails{
+
+    width:100%;
+    margin-bottom: 50px;
+    margin-top:-30px;
+}
+

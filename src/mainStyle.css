@@ -17,34 +17,46 @@ body {
   /* align-items: center; */
 }
 
-.app {
-  /* background-color: green; */
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  /* background-color: blue; */
 
-  
-  
+
+
+.spotifyLogo {
+  display: none;
 }
 
-.logoContainer {
-  /* background-color: aqua; */
-  margin-top: 20px;
-  margin-left: 15px;
-  
-}
+@media (min-width: 540px) {
+  .app {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 
-.contentContainer {
-  margin-top: 40px;
-  margin-left: 160px;
-  /* max-width: 450px; */
-  /* width:100%; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* background-color: darkcyan; */
-  width: 100%;
+  .logoContainer {
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+  .contentContainer {
+    margin-top: 30px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    width: 100%;
+  }
+
+  .spotifyLogo {
+    display: none;
+  }
+
+
+  .spotifyLogo {
+    width: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+    display: block;
+  }
 }

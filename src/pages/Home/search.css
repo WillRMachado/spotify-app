@@ -6,16 +6,30 @@ h5 {
 
 }
 
+
+
+
 .searchInput {
     box-shadow: none;
     background: none;
     border: none;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 24px;
     color: #FFF;
 }
 
-.searchBox{
+.searchBox {
     /* background-color: red; */
     width: 100%;
+}
+
+
+@media (min-width: 540px) {
+    .searchInput {
+        font-size: 48px;
+    }
+
+    .searchBox {
+        width: 100%;
+    }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import './mainStyle.css';
 import Routes from './routes';
+import Logo from './assets/Spotify_Icon_RGB_White.png'
+import AskForLogin from './pages/SpotifyLogin/AskForLogin'
 
 import {Provider} from 'react-redux';
 
@@ -14,7 +16,8 @@ function App() {
     <>
     <Provider store = {store}>
       <div className="app">
-        <div className="logoContainer">LOGO SPOTIFY</div>
+        <img src={Logo} className="spotifyLogo" alt="album Detail Cover" />
+        <AskForLogin />
         <div className="contentContainer">
           <Routes />
         </div>

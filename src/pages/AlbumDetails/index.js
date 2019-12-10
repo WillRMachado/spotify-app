@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Player from './PlayButton'
+import { Link } from 'react-router-dom'
 
 import searchApi from '../../services/searchApi'
 
+import './albumDetails.css'
 
 function addAlbumData(data) {
     return { type: 'SET_ALBUM_DATA', data }
@@ -15,12 +18,13 @@ function AlbunDetails() {
 
     const token = window.localStorage.getItem('spotifyToken')
     const albumData = useSelector(state => state.albumData.data)
-    console.log(albumData)
     const albumCover = (albumData.data ? albumData.data.images[1].url : "")
-    const albumTracks = (albumData.data ? albumData.data.tracks.items :[])
+    const albumTracks = (albumData.data ? albumData.data.tracks.items : [])
+    const albumName = (albumData.data ? albumData.data.name : "")
+    const albumArtists = (albumData.data ? albumData.data.artists[0].name : "")
+    // const albumPreviews = (albumData.data ? albumData.data.tracks.items.preview_url : [])
+
     console.log(albumTracks)
-
-
 
 
     const hash = window.location.hash
@@ -51,6 +55,9 @@ function AlbunDetails() {
     }, [])
 
 
+
+
+
     const setAlbumData = (data) => {
         dispatch(addAlbumData(data))
     }
@@ -60,35 +67,33 @@ function AlbunDetails() {
         var minutes = Math.floor(millis / 60000);
         var seconds = ((millis % 60000) / 1000).toFixed(0);
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
-      }
-
-
-
-      function PlaySound(caminho) {
-        var path = caminho
-        var snd = new Audio(path);
-        snd.play();
     }
 
 
-
     return (
-        <div>
-            <img src={albumCover} className="albumImage" alt="album Detail Cover" />
-
-            {albumTracks.map(request => (
-                <div >
-                    <h5>{request.name}</h5>
-                    <h5>{millisToMinutesAndSeconds(request.duration_ms)}</h5>
-                    <h5>{request.preview_url}</h5>
-                    <button onclick={`PlaySound(${request.preview_url})` } > button1</button>
+        <>
+            <Link to={"/"}>
+                <div className="returnFromAlbumDetails"> &#60; Voltar</div>
+            </Link>
+            <div className="albumDetails">
+                <div className="albumCoverDetails">
+                    <img src={albumCover} className="albumDetailImage" alt="album Detail Cover" />
+                    <h3>{albumName}</h3>
+                    <h4>{albumArtists}</h4>
                 </div>
-            )
+                <div className="albumDetailTracksWrapper" >
+                    {albumTracks.map(request => (
+                        <div key={request.track_number} >
+                            <Player t_number={request.track_number} url={request.preview_url} name={request.name} duration={millisToMinutesAndSeconds(request.duration_ms)}></Player>
+                        </div>
+                    )
 
-            )}
+                    )}
+                </div>
 
 
-        </div>
+            </div>
+        </>
     )
 }
 
