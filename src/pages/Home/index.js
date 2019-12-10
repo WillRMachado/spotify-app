@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from './Search.js'
+import SearchResults from './SearchResults/'
 
 
 function Home() {
@@ -7,7 +8,7 @@ function Home() {
         <>
             <Search />
             <br />
-            <p>albuns</p>
+            <SearchResults />
             <br />
             <p>albuns-pesquisa</p>
         </>

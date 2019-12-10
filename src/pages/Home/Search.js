@@ -3,6 +3,7 @@ import OauthPopup from 'react-oauth-popup'
 import { useSelector, useDispatch } from 'react-redux'
 import searchApi from '../../services/searchApi'
 
+
 import './search.css'
 
 
@@ -14,6 +15,9 @@ function addToken(token) {
 function addSearchText(text) {
     return { type: 'TYPE', text }
 }
+function addSearchResult(data) {
+    return { type: 'SET_SEARCH', data }
+}
 
 
 
@@ -21,46 +25,34 @@ function Search() {
 
     const dispatch = useDispatch();
 
-
-    async function busca() {
-        console.log("adwad")
-        const response = await searchApi.get('', {
-            query: { "q": "nightwis*", "type": "artist" },
-            headers: { "Authorization": "BearerBQAokmx7KRSqTFUxdBZhCMOtjP55UKdJRWJcjJxYdVR4BlKunjZd_aguPWYGs2y7M0_PwTHyfL7GhIyw7rbe26wLdeLKvHymaCBUT4Wx4tKvYzYsAd0D2NNuVEQKMvWm-twtrt0WrznigJQYxmI6QcqqeAn4SdmRr_8" }
-        })
-        console.log("j")
-        console.log(response)
-    }
-    busca()
-
-
-
-    function teste() {
-
-
-        fetch("https://api.spotify.com/v1/search?q=Muse&type=track%2Cartist&market=US&limit=10&offset=5", {
-            "method": "GET",
-            "headers": {
-                "accept": "application/json",
-                "content-type": "application/json",
-                "authorization": "Bearer BQDad987xUetjK_a3E1J0q9o3Hh3sn2SDr8uLkEOVk_oggpeqYNiS0dinzL6CS7pURsPz78kj_n5f8-LQc0yAWkm1GG_PnwFoecZ_q4l43huYtaD79dy2vP4ogKrzFqWEy1m-y15uIYehCbsFXgloyWmDnrEo8359cU"
-            },
-        })
-            .then(response => {
-                console.log(response);
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
-
-    teste()
-
     // getting data from redux
     const searchText = useSelector(state => state.search.text)
-    const token = useSelector(state => state.spotify)
+    const token = useSelector(state => state.spotify.token)
+
+    // console.log(token)
 
 
+
+    useEffect(() => {
+        setToken()
+        async function SearchItens() {
+            searchApi.get(null, {
+                params: {
+                    "q": "*" + searchText + "*",
+                    "type": "artist,album,track"
+                },
+                headers: {
+                    "authorization": "Bearer " + token
+                }
+            }).then(function (response) {
+                setSearchResult(response)
+                // console.log(response);
+            })
+        }
+        SearchItens()
+    }, [token, searchText])
+    
+    
     // setting data to redux
     const setToken = () => {
         dispatch(addToken(window.localStorage.getItem('spotifyToken')))
@@ -68,8 +60,11 @@ function Search() {
     const setSearch = (text) => {
         dispatch(addSearchText(text))
     }
-
-
+    const setSearchResult = (data) => {
+        dispatch(addSearchResult(data))
+    }
+    
+    
     // on render
     useEffect(() => {
         setToken();
