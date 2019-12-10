@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Home from './pages/Home/'
 import SpotifyLogin from './pages/SpotifyLogin/'
+import AlbumDetails from './pages/AlbumDetails/'
 // import Login from './pages/Login'
 // import Dashboard from './pages/Dashboard'
 // import New from './pages/New'
@@ -13,6 +14,7 @@ export default function Routes (){
         <Switch>
             <Route path ="/" exact component={Home}/>
             <Route path ="/spotify-login" component={SpotifyLogin}/>
+            <Route path ="/album" component={AlbumDetails}/>
             {/* <Route path ="/dashboard" component={Dashboard}/>
             <Route path ="/new" component={New}/> */}
         </Switch>

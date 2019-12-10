@@ -36,7 +36,7 @@ function Search() {
     useEffect(() => {
         setToken()
         async function SearchItens() {
-            searchApi.get(null, {
+            searchApi.get("/search", {
                 params: {
                     "q": "*" + searchText + "*",
                     "type": "artist,album,track"
@@ -51,8 +51,8 @@ function Search() {
         }
         SearchItens()
     }, [token, searchText])
-    
-    
+
+
     // setting data to redux
     const setToken = () => {
         dispatch(addToken(window.localStorage.getItem('spotifyToken')))
@@ -63,8 +63,8 @@ function Search() {
     const setSearchResult = (data) => {
         dispatch(addSearchResult(data))
     }
-    
-    
+
+
     // on render
     useEffect(() => {
         setToken();

@@ -1,0 +1,17 @@
+.searchResultBox {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.searchResult {
+    width: 20%;
+    box-sizing: border-box;
+
+
+}
+
+.searchWrapper{
+    margin-top: 100px;
+    
+}

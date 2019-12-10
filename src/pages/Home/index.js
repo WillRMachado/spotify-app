@@ -7,10 +7,7 @@ function Home() {
     return (
         <>
             <Search />
-            <br />
             <SearchResults />
-            <br />
-            <p>albuns-pesquisa</p>
         </>
     )
 }

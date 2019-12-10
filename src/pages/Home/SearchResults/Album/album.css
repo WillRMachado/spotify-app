@@ -1,0 +1,30 @@
+.albumItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  margin-top: 20px;
+
+  text-align: center;
+
+  align-items: initial;
+}
+
+.albumImage {
+  width: 80%;
+  height: 80%;
+}
+
+.albumName {
+  width: 80%;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.albumArtistName {
+  width: 80%;
+  margin: 0;
+}

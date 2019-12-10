@@ -20,7 +20,6 @@ function Home() {
     return initial;
   }, {});
 
-  //
     return (
         <>
             <br />
