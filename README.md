@@ -1,4 +1,4 @@
-#  REACT TEST FOR XPINVESTIMENTOS
+#  REACT TEST, XPINVESTIMENTOS
 ###### 2019-12-11 03:46:21 Wednesday
 ------------
 ### Use Npm Install To Set The Application Dependecies
@@ -14,5 +14,5 @@
  ------------
 
 ## IMPORTANT:
-Due to Spotify`s authentication the application** MUST** be run on port 3000
+Due to Spotify's authentication the application** MUST** be run on port 3000.
 for production this can be easilly changed to match the DNS
