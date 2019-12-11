@@ -1,6 +1,6 @@
 import React from 'react'
 import Album from './Album/Album.js'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import './SearchResults.css'
 

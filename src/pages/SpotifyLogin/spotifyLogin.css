@@ -1,0 +1,25 @@
+.loggedInWrapper {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    /* background-color: blue; */
+    justify-content:center;
+
+
+}
+
+.loggedInContent {
+    /* font-size: 500px; */
+    align-self: center;
+    margin: 20px 0px 0px 20px;
+
+}
+
+.spotifyLogoLogged {
+    /* background-color: brown; */
+    margin: 10% ;
+    width: 50%;
+}

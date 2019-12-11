@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import OauthPopup from 'react-oauth-popup'
+// import OauthPopup from 'react-oauth-popup'
 import { useSelector, useDispatch } from 'react-redux'
 import searchApi from '../../services/searchApi'
 
@@ -37,30 +37,53 @@ function Search() {
     }, []);
 
 
+
+
+
+
+    function reTrySearch() {
+
+
+
+        if (window.localStorage.getItem('spotifyToken') == "") {
+            window.localStorage.setItem('spotifyToken', "")
+        } else if (window.localStorage.getItem('spotifyToken') == token) {
+            window.localStorage.setItem('spotifyToken', "expired");
+        }
+
+
+        setToken()
+
+        SearchItens()
+    }
+
+
+    async function SearchItens() {
+        await searchApi.get("/search", {
+            params: {
+                "q": "*" + searchText + "*",
+                "type": "artist,album,track"
+            },
+            headers: {
+                "authorization": "Bearer " + window.localStorage.getItem('spotifyToken')
+            }
+        }).then(function (response) {
+            setSearchResult(response)
+            // console.log(token)
+            setToken()
+
+            // console.log(response);
+        }).catch(function (response) {
+
+            setTimeout(reTrySearch(), 2000)
+
+        })
+    }
+
+
     useEffect(() => {
         setToken()
-        async function SearchItens() {
-            await searchApi.get("/search", {
-                params: {
-                    "q": "*" + searchText + "*",
-                    "type": "artist,album,track"
-                },
-                headers: {
-                    "authorization": "Bearer " + window.localStorage.getItem('spotifyToken')
-                }
-            }).then(function (response) {
-                setSearchResult(response)
-                // console.log(response);
-            }).catch(function (response) {
-                // console.log(response);
-                if (window.localStorage.getItem('spotifyToken') == "") {
-                    window.localStorage.setItem('spotifyToken', "")
-                } else {
-                    window.localStorage.setItem('spotifyToken', "expired");
-                }
-                setToken()
-            })
-        }
+
         SearchItens()
     }, [token, searchText])
 

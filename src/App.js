@@ -10,8 +10,10 @@ import store from './reducers';
 // import { createStore } from '../../../../AppData/Local/Microsoft/TypeScript/3.6/node_modules/redux';
 
 
+
 // const store2 = createStore(store)
 function App() {
+  window.close();
   return (
     <>
     <Provider store = {store}>

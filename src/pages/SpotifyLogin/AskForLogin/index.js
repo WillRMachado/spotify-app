@@ -1,27 +1,47 @@
 import React, { useEffect } from 'react'
 import OauthPopup from 'react-oauth-popup'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './askForLogin.css'
 
+
+
+function addToken(token) {
+    return { type: 'ADD_TOKEN', token }
+}
+
+
+
 function AskForLogin() {
+
+
+    const dispatch = useDispatch();
+
     const token = useSelector(state => state.spotify.token)
     console.log(token)
 
 
     useEffect(() => {
-        // console.log(token)
+        setToken()
     }, [token])
 
     // token="" ? console.log("vazio") : console.log("cheio")
 
-    if (token === "") {
-        console.log("1")
-    } else if (token === "expired") {
-        console.log("2")
-    } else {
-        console.log("3")
+    // if (token === "") {
+    //     console.log("1")
+    // } else if (token === "expired") {
+    //     console.log("2")
+    // } else {
+    //     console.log("3")
+    // }
+
+
+
+
+    const setToken = () => {
+        dispatch(addToken(window.localStorage.getItem('spotifyToken')))
     }
+
 
     return (
         <OauthPopup 
@@ -30,7 +50,6 @@ function AskForLogin() {
              <div className="oAuth">
           {(token=="")?"Clique aqui para logar no Spotify":""} 
           {(token=="expired")?"Clique aqui para logar novamente no Spotify":""} 
-          {/* Clique aqui para ativar um token do Spotify */}
           </div>
         </OauthPopup>
     )
