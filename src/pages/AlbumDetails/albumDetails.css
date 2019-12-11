@@ -35,10 +35,14 @@
 
 
 
-.returnFromAlbumDetails{
-
+.returnFromAlbumDetails, .returnFromAlbumDetails:visited{
+    color:#fff;
+    text-decoration: none ;
     width:100%;
     margin-bottom: 50px;
     margin-top:-30px;
+}
+a{
+    text-decoration: none ;
 }
 
