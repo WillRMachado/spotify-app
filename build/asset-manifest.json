@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/WillRMachado/spotify-app/static/css/main.453eabda.chunk.css",
-    "main.js": "/WillRMachado/spotify-app/static/js/main.bdd173a0.chunk.js",
-    "main.js.map": "/WillRMachado/spotify-app/static/js/main.bdd173a0.chunk.js.map",
-    "runtime-main.js": "/WillRMachado/spotify-app/static/js/runtime-main.f7c72608.js",
-    "runtime-main.js.map": "/WillRMachado/spotify-app/static/js/runtime-main.f7c72608.js.map",
-    "static/js/2.702ddaaa.chunk.js": "/WillRMachado/spotify-app/static/js/2.702ddaaa.chunk.js",
-    "static/js/2.702ddaaa.chunk.js.map": "/WillRMachado/spotify-app/static/js/2.702ddaaa.chunk.js.map",
-    "index.html": "/WillRMachado/spotify-app/index.html",
-    "precache-manifest.e7b444f4caadba78243ae9744c2b6edb.js": "/WillRMachado/spotify-app/precache-manifest.e7b444f4caadba78243ae9744c2b6edb.js",
-    "service-worker.js": "/WillRMachado/spotify-app/service-worker.js",
-    "static/css/main.453eabda.chunk.css.map": "/WillRMachado/spotify-app/static/css/main.453eabda.chunk.css.map",
-    "static/js/2.702ddaaa.chunk.js.LICENSE": "/WillRMachado/spotify-app/static/js/2.702ddaaa.chunk.js.LICENSE",
-    "static/media/Spotify_Icon_RGB_White.png": "/WillRMachado/spotify-app/static/media/Spotify_Icon_RGB_White.cc4e2784.png"
+    "main.css": "/static/css/main.453eabda.chunk.css",
+    "main.js": "/static/js/main.bdd173a0.chunk.js",
+    "main.js.map": "/static/js/main.bdd173a0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8732a1e4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8732a1e4.js.map",
+    "static/js/2.702ddaaa.chunk.js": "/static/js/2.702ddaaa.chunk.js",
+    "static/js/2.702ddaaa.chunk.js.map": "/static/js/2.702ddaaa.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.466b2406fc9d9302cb56289eab73f686.js": "/precache-manifest.466b2406fc9d9302cb56289eab73f686.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.453eabda.chunk.css.map": "/static/css/main.453eabda.chunk.css.map",
+    "static/js/2.702ddaaa.chunk.js.LICENSE": "/static/js/2.702ddaaa.chunk.js.LICENSE",
+    "static/media/Spotify_Icon_RGB_White.png": "/static/media/Spotify_Icon_RGB_White.cc4e2784.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7c72608.js",
+    "static/js/runtime-main.8732a1e4.js",
     "static/js/2.702ddaaa.chunk.js",
     "static/css/main.453eabda.chunk.css",
     "static/js/main.bdd173a0.chunk.js"
