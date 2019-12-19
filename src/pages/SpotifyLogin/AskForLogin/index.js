@@ -45,7 +45,7 @@ function AskForLogin() {
 
     return (
         <OauthPopup 
-            url="https://accounts.spotify.com/authorize?client_id=0269347a0b89494a952339ac5aaf8f94&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fspotify-login"
+            url="https://accounts.spotify.com/authorize?client_id=0269347a0b89494a952339ac5aaf8f94&response_type=token&redirect_uri=http%3A%2F%2Fspotifywill.netlify.com%2Fspotify-login"
         >
              <div className="oAuth">
           {(token=="")?"Clique aqui para logar no Spotify":""} 
