@@ -47,9 +47,9 @@ function Search() {
 
         if (window.localStorage.getItem('spotifyToken') == "") {
             window.localStorage.setItem('spotifyToken', "")
-        } else if (window.localStorage.getItem('spotifyToken') == token) {
-            window.localStorage.setItem('spotifyToken', "expired");
-        }
+        // } else if (window.localStorage.getItem('spotifyToken') == token) {
+        //     window.localStorage.setItem('spotifyToken', "expired");
+        // }
 
 
         setToken()
