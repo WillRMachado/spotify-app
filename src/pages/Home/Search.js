@@ -49,7 +49,7 @@ function Search() {
             window.localStorage.setItem('spotifyToken', "")
         // } else if (window.localStorage.getItem('spotifyToken') == token) {
         //     window.localStorage.setItem('spotifyToken', "expired");
-        // }
+        }
 
 
         setToken()
